@@ -6,7 +6,11 @@
   "repository": "git@github.com:kamiazya/typedoc-plugin-nomnoml.git",
   "author": "kamiazya <yuki@kamiazya.tech>",
   "license": "MIT",
+  "scripts": {
+    "lint": "tslint --project ./tsconfig.json"
+  },
   "devDependencies": {
+    "tslint": "^5.20.0",
     "typescript": "^3.6.3"
   }
 }
