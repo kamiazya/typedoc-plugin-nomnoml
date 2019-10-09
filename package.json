@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:kamiazya/typedoc-plugin-nomnoml.git",
   "author": "kamiazya <yuki@kamiazya.tech>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
 }
