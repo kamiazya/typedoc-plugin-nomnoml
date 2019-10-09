@@ -1,10 +1,14 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint:recommended"
+    "tslint:recommended",
+    "tslint-config-prettier"
   ],
   "jsRules": {},
   "rules": {
+    "prettier": true,
+    "import-spacing": true,
+    "array-type": false,
     "quotemark": [
       true,
       "single"
@@ -12,5 +16,7 @@
     "arrow-parens": false,
     "object-literal-sort-keys": false
   },
-  "rulesDirectory": []
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ]
 }
