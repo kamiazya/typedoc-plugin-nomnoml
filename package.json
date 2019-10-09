@@ -1,0 +1,9 @@
+{
+  "name": "typedoc-plugin-nomnoml",
+  "version": "0.0.1",
+  "description": "A plugin for TypeDoc that generates graphs for nomnoml diagrams by using @nomnoml annotation.",
+  "main": "index.js",
+  "repository": "git@github.com:kamiazya/typedoc-plugin-nomnoml.git",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "license": "MIT"
+}
