@@ -9,7 +9,11 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
-    "outDir": "dist/"
+    "outDir": "dist/",
+    "rootDir": "./src",
+    "noUnusedLocals": true,
+    "declaration": true,
+    "removeComments": true
   },
   "include": [
     "src/*.ts"
