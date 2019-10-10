@@ -17,7 +17,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "rm -rf dist && tsc -p ./src/tsconfig.json",
+    "build": "rm -rf dist && tsc",
     "lint": "tslint --project ./tsconfig.json"
   },
   "peerDependencies": {
