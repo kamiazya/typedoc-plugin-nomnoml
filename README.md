@@ -69,13 +69,13 @@ typedoc --plugin typedoc-plugin-nomnoml --nomnomlVersion 0.6.1
 
 #### Set version by `typedoc.json`
 
-Add `vermaidVersion` config to `typedoc.json`.
+Add `nomnomlVersion` config to `typedoc.json`.
 
 ```json
 {
   "mode": "file",
   "out": "./docs",
-  "vermaidVersion": "0.6.1"
+  "nomnomlVersion": "0.6.1"
 }
 ```
 
