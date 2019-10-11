@@ -3,28 +3,33 @@ name: Node CI
 on: [push]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  tests:
+    name: Test on node ${{ matrix.node-version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: install global module
       run: |
         npm install -g yarn
-    - name: install dependencies
-      run: yarn install
+    - name: Install dependencies
+      run: yarn --frozen-lockfile --ignore-optional
       env:
         CI: true
-    - name: lint
+    - name: Lint
       run: yarn lint
+      env:
+        CI: true
+
+    - name: Build
+      run: yarn build
       env:
         CI: true
