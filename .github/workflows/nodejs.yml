@@ -53,7 +53,7 @@ jobs:
         npm install -g yarn
       if: contains(github.ref, 'tags/v')
     - name: Install dependencies
-      run: yarn install --production --frozen-lockfile --ignore-optional
+      run: yarn install --frozen-lockfile --ignore-optional
       if: contains(github.ref, 'tags/v')
       env:
         CI: true
