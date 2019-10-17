@@ -8,3 +8,5 @@ tsconfig.json
 tslint.json
 .gitignore
 .editorconfig
+
+CODE_OF_CONDUCT.md
