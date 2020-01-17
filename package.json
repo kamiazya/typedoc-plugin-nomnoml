@@ -28,10 +28,10 @@
     "lint": "tslint --project ./tsconfig.json"
   },
   "peerDependencies": {
-    "typedoc": "^0.15.0"
+    "typedoc": "^0.16.7"
   },
   "dependencies": {
-    "typedoc": "^0.15.0"
+    "typedoc": "^0.16.7"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
