@@ -15,6 +15,15 @@
         "test",
         "doc"
       ]
+    },
+    {
+      "login": "baronTommy",
+      "name": "Tommy",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/16768208?v=4",
+      "profile": "https://github.com/baronTommy",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
