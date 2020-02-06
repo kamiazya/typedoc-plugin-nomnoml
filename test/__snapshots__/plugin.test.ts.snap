@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NomnomlPlugin convert PageContents returns script tag for nomnoml.js, initialize nomnoml script, and body closing tag 1`] = `
+"
+      <script src=\\"https://cdn.jsdelivr.net/npm/dagre/dist/dagre.min.js\\"></script>
+      <script src=\\"https://cdn.jsdelivr.net/npm/nomnoml/dist/nomnoml.min.js\\"></script>
+      <script></script>
+      </body>
+    "
+`;
