@@ -28,7 +28,7 @@
     "lint": "tslint --project ./tsconfig.json"
   },
   "peerDependencies": {
-    "typedoc": "^0.15.0"
+    "typedoc": "^0.11.0"
   },
   "dependencies": {
     "typedoc": "^0.15.0"
