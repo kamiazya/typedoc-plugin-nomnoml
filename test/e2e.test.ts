@@ -4,7 +4,7 @@ import { NomnomlPlugin } from '../src/plugin';
 const plugin = new NomnomlPlugin(DUMMY_APPLICATION_OWNER);
 
 describe('NomnomlPlugin e2e', () => {
-  it('onBegin not to throw Exeption', () => {
+  it('onBegin not to throw Exception', () => {
     const contexts: any[] = [
       {
         project: {
@@ -49,7 +49,7 @@ describe('NomnomlPlugin e2e', () => {
     contexts.forEach(context => expect(() => plugin.onResolveBegin(context)).not.toThrow());
   });
 
-  it('onPageEnd not to throw Exeption', () => {
+  it('onPageEnd not to throw Exception', () => {
     const pageEvents: any[] = [{ contents: '' }, {}];
 
     pageEvents.forEach(pageEvent => expect(() => plugin.onPageEnd(pageEvent)).not.toThrow());
