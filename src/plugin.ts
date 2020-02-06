@@ -3,9 +3,6 @@ import { Component, ConverterComponent } from 'typedoc/dist/lib/converter/compon
 import { Context } from 'typedoc/dist/lib/converter/context';
 import { Comment, CommentTag } from 'typedoc/dist/lib/models/comments';
 import { PageEvent } from 'typedoc/dist/lib/output/events';
-import { Option } from 'typedoc/dist/lib/utils';
-import { ParameterType } from 'typedoc/dist/lib/utils/options/declaration';
-
 /**
  * Nomnoml plugin component.
  */
@@ -17,7 +14,6 @@ export class NomnomlPlugin extends ConverterComponent {
    * 3. Close body tag.
    */
   private get customScriptsAndBodyClosinngTag(): string {
-    const nomnomlVersion = this.nomnomlVersion;
     const script = Array.from(this.graphMap.entries())
       .map(
         ([id, source]) =>
@@ -27,8 +23,8 @@ export class NomnomlPlugin extends ConverterComponent {
       )
       .join('\n');
     return `
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.4/dagre.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/nomnoml/${nomnomlVersion}/nomnoml.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/dagre/dist/dagre.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/nomnoml/dist/nomnoml.min.js"></script>
       <script>${script}</script>
       </body>
     `;
@@ -79,17 +75,6 @@ export class NomnomlPlugin extends ConverterComponent {
         .filter(this.isNomnomlCommentTag)
     );
   }
-
-  @Option({
-    name: 'nomnomlVersion',
-    defaultValue: '0.6.1',
-    help: 'Nomnoml Plugin: Version of nomnoml.',
-    type: ParameterType.String,
-  })
-  /**
-   * Version of nomnoml.
-   */
-  public nomnomlVersion: string;
 
   private graphMap = new Map<string, string>();
 

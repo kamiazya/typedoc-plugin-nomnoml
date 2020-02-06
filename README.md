@@ -57,30 +57,6 @@ Write tsdoc with `@nomnoml` annotation
 export class Hoge { }
 ```
 
-## Additional Options
-
-### Example: If you want to use `nomnoml@0.6.1`
-
-#### Set version by CLI
-
-Add `--nomnomlVersion 0.6.1` option.
-
-```bash
-typedoc --plugin typedoc-plugin-nomnoml --nomnomlVersion 0.6.1
-```
-
-#### Set version by `typedoc.json`
-
-Add `nomnomlVersion` config to `typedoc.json`.
-
-```json
-{
-  "mode": "file",
-  "out": "./docs",
-  "nomnomlVersion": "0.6.1"
-}
-```
-
 ### Help
 
 ```bash
