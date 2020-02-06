@@ -9,11 +9,11 @@ import { PageEvent } from 'typedoc/dist/lib/output/events';
 @Component({ name: 'nomnoml' })
 export class NomnomlPlugin extends ConverterComponent {
   /**
-   * 1. Load nomnoml liblary.
+   * 1. Load nomnoml library.
    * 2. Initialize nomnoml.
    * 3. Close body tag.
    */
-  private get customScriptsAndBodyClosinngTag(): string {
+  private get customScriptsAndBodyClosingTag(): string {
     const script = Array.from(this.graphMap.entries())
       .map(
         ([id, source]) =>
@@ -33,14 +33,14 @@ export class NomnomlPlugin extends ConverterComponent {
   private static graphIdCounter: number = 0;
 
   /**
-   * fillter logic for Comment exist
+   * filter logic for Comment exist
    */
   private static filterComment(comment: undefined | Comment): comment is Comment {
     return comment !== undefined && !!comment;
   }
 
   /**
-   * fillter logic for CommentTags exist
+   * filter logic for CommentTags exist
    */
   private static filterCommentTags(tags: CommentTag[] | undefined): tags is CommentTag[] {
     return tags !== undefined && !!tags;
@@ -54,26 +54,16 @@ export class NomnomlPlugin extends ConverterComponent {
   }
 
   /**
-   * get CommentTags for using `@nomnoml` anotation from Context.
+   * get CommentTags for using `@nomnoml` annotation from Context.
    */
   private static nomnomlTags(context: Context): CommentTag[] {
-    return (
-      Object
-        // get reflection from context
-        .values(context.project.reflections)
-        // get Comment from Reflection
-        .map(reflection => reflection.comment)
-        // filter only comment exist
-        .filter(this.filterComment)
-        // get CommentTags from Comment
-        .map(comment => comment.tags)
-        // filter only CommentTags exist
-        .filter(this.filterCommentTags)
-        // merge all CommentTags
-        .reduce((a, b) => a.concat(b), [])
-        // filter tag that paramName is 'nomnoml'
-        .filter(this.isNomnomlCommentTag)
-    );
+    return Object.values(context.project.reflections) // get reflection from context
+      .map(reflection => reflection.comment) // get Comment from Reflection
+      .filter(this.filterComment) // filter only comment exist
+      .map(comment => comment.tags) // get CommentTags from Comment
+      .filter(this.filterCommentTags) // filter only CommentTags exist
+      .reduce((a, b) => a.concat(b), []) // merge all CommentTags
+      .filter(this.isNomnomlCommentTag); // filter tag that paramName is 'nomnoml'
   }
 
   private graphMap = new Map<string, string>();
@@ -81,7 +71,7 @@ export class NomnomlPlugin extends ConverterComponent {
   /**
    * Regex literal that matches body closing tag.
    */
-  private readonly BODY_CLOSINNG_TAG = /<\/body>/;
+  private readonly BODY_CLOSING_TAG = /<\/body>/;
 
   /**
    * The first line of text wraps h4.
@@ -102,14 +92,14 @@ export class NomnomlPlugin extends ConverterComponent {
    * Insert custom script before closing body tag.
    */
   public convertPageContents(contents: string): string {
-    if (this.BODY_CLOSINNG_TAG.test(contents)) {
-      return contents.replace(this.BODY_CLOSINNG_TAG, this.customScriptsAndBodyClosinngTag);
+    if (this.BODY_CLOSING_TAG.test(contents)) {
+      return contents.replace(this.BODY_CLOSING_TAG, this.customScriptsAndBodyClosingTag);
     }
     return contents;
   }
 
   /**
-   * listen to event on initialisation
+   * listen to event on initialization
    */
   public initialize() {
     this.listenTo(this.owner, {
