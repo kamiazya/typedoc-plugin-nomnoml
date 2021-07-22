@@ -46,12 +46,12 @@ describe('NomnomlPlugin e2e', () => {
       },
     ];
 
-    contexts.forEach(context => expect(() => plugin.onResolveBegin(context)).not.toThrow());
+    contexts.forEach((context) => expect(() => plugin.onResolveBegin(context)).not.toThrow());
   });
 
   it('onPageEnd not to throw Exception', () => {
     const pageEvents: any[] = [{ contents: '' }, {}];
 
-    pageEvents.forEach(pageEvent => expect(() => plugin.onPageEnd(pageEvent)).not.toThrow());
+    pageEvents.forEach((pageEvent) => expect(() => plugin.onPageEnd(pageEvent)).not.toThrow());
   });
 });

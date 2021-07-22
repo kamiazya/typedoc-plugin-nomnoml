@@ -30,7 +30,7 @@ export class NomnomlPlugin extends ConverterComponent {
     `;
   }
 
-  private static graphIdCounter: number = 0;
+  private static graphIdCounter = 0;
 
   /**
    * filter logic for Comment exist
@@ -58,9 +58,9 @@ export class NomnomlPlugin extends ConverterComponent {
    */
   private static nomnomlTags(context: Context): CommentTag[] {
     return Object.values(context.project.reflections) // get reflection from context
-      .map(reflection => reflection.comment) // get Comment from Reflection
+      .map((reflection) => reflection.comment) // get Comment from Reflection
       .filter(this.filterComment) // filter only comment exist
-      .map(comment => comment.tags) // get CommentTags from Comment
+      .map((comment) => comment.tags) // get CommentTags from Comment
       .filter(this.filterCommentTags) // filter only CommentTags exist
       .reduce((a, b) => a.concat(b), []) // merge all CommentTags
       .filter(this.isNomnomlCommentTag); // filter tag that paramName is 'nomnoml'
@@ -101,7 +101,7 @@ export class NomnomlPlugin extends ConverterComponent {
   /**
    * listen to event on initialization
    */
-  public initialize() {
+  public initialize(): void {
     this.listenTo(this.owner, {
       [Converter.EVENT_RESOLVE_BEGIN]: this.onResolveBegin,
     }).listenTo(this.application.renderer, {
@@ -112,8 +112,8 @@ export class NomnomlPlugin extends ConverterComponent {
   /**
    * Triggered when the converter begins converting a project.
    */
-  public onResolveBegin(context: Context) {
-    NomnomlPlugin.nomnomlTags(context).forEach(tag => {
+  public onResolveBegin(context: Context): void {
+    NomnomlPlugin.nomnomlTags(context).forEach((tag) => {
       // convert
       tag.text = this.convertCommentTagText(tag.text);
     });
@@ -123,7 +123,7 @@ export class NomnomlPlugin extends ConverterComponent {
    * Triggered after a document has been rendered, just before it is written to disc.
    * Remove duplicate lines to tidy up output
    */
-  public onPageEnd(page: PageEvent) {
+  public onPageEnd(page: PageEvent): void {
     if (page.contents !== undefined) {
       // convert
       page.contents = this.convertPageContents(page.contents);
