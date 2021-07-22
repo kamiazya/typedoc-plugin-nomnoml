@@ -4,19 +4,18 @@ on: [push]
 
 jobs:
   tests:
-    name: Test on node ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Test on node ${{ matrix.node-version }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ubuntu-latest
     - name: Install dependencies
       run: yarn --frozen-lockfile --ignore-optional
       env:

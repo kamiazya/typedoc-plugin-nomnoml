@@ -1,7 +1,7 @@
 import { Application } from 'typedoc';
 import { NomnomlPlugin } from './plugin';
 
-export function load(PluginHost: Application) {
+export function load(PluginHost: Application): void {
   const app = PluginHost.owner;
   if (app.converter.hasComponent('nomnoml')) {
     return;
