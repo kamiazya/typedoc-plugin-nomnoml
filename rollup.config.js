@@ -14,11 +14,7 @@ const options = {
       file: './dist/index.mjs',
     },
   ],
-  external: [
-    'typedoc/dist/lib/converter',
-    'typedoc/dist/lib/converter/components',
-    'typedoc/dist/lib/output/events',
-  ],
+  external: ['typedoc/dist/lib/converter', 'typedoc/dist/lib/converter/components', 'typedoc/dist/lib/output/events'],
 };
 
 export default options;
