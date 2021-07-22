@@ -11,4 +11,4 @@ export function load(PluginHost: Application) {
    * Add the plugin to the converter instance
    */
   app.converter.addComponent('nomnoml', new NomnomlPlugin(app.converter));
-};
+}
